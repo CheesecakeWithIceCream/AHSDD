@@ -1,0 +1,118 @@
+rows = 4
+cols = 6
+seats = [['-' for c in range(cols)] for r in range(rows)]
+seats[1][1],seats[2][4],seats[3][0] = "X" * 3
+
+for row in range(rows):
+	print(seats[row])
+	
+counter = 0
+for row in range(rows):
+	for col in range (cols):
+		if seats[row][col] == "-":
+		    counter+=1
+print(counter)
+
+------------------------------------------------------------------------------------
+
+board = [
+	['O', 'O', 'O'],
+	['O', 'X', 'O'],
+	['X', 'O', 'X']
+]
+ 
+for i in range(3):
+	print(board[ i])
+ 
+winner = ''
+
+for i in range(3):
+	if board[i][0] ==	board[ i][1] == board[ i][2]:
+		print(board[ i][1], " is the winner")
+
+for i in range(3):
+	if board[0][ i] == board[1][ i] == board[2][ i]:
+		print(board[1][ i],"is the winner")
+
+for i in range(3):
+	if board[0][0] == board [1][1] == board[2][2] or board[2][0] == board [1][1] == board[1][2]:
+		print(board[1][1], "is the winner")
+
+------------------------------------------------------------------------------------
+
+seat = [ ['' for col in range(5)] for row in range(2)]
+seat[0][0] = 'D'
+seat[0][1] = 'AB'
+seat[0][2] = 'MD'
+seat[1][4] = 'LL'
+seat[1][0] = 'ES'
+seat[1][2] = 'T'
+
+initials= input("What are your initials")
+row = int(input("What row: "))
+col = int(input("What row: "))
+while seat[row][col] != '':
+	print("Seat unavailable")
+	row = int(input("What row: "))
+	col = int(input("What row: "))
+seat[row][col] = initials
+
+for row in range(2):
+    print(seat[row])
+
+------------------------------------------------------------------------------------
+
+students = ['Ali', 'Bea', 'Cal', 'Dee', 'Eve']
+marks = [
+	[14, 16, 12, 18],
+	[9,  11, 15, 10],
+	[20, 19, 18, 20],
+	[7,  8,  10, 6],
+	[15, 14, 16, 17]
+]
+ 
+for r in range(len(marks)):
+	print(students[r], marks[r])
+
+
+# TODO 1: average mark per student
+saverages = []
+for r in range(5):
+	total = 0
+	average = 0
+	for s in range(4):
+		total += marks[r][s]
+	average = total/4
+	saverages.append(average)
+print(saverages)
+	
+# TODO 2: average mark per test (per column)
+caverages = []
+for s in range(4):
+	total = 0
+	average = 0
+	for r in range(5):
+		total += marks[r][s]
+	average = total/4
+	caverages.append(average)
+print(caverages)
+# TODO 3: highest mark, student and test
+
+highest = marks[0][0]
+for r in range(5):
+	for s in range(4):
+		if marks[r][s] > highest:
+			highest = marks[r][s]
+			student = students[r]
+			test = s + 1
+print(student,"got", highest, "marks in","test", test)
+
+# TODO 4: lowest mark, student and test
+lowest = marks[0][0]
+for r in range(5):
+	for s in range(4):
+		if marks[r][s] < lowest:
+			lowest = marks[r][s]
+			student = students[r]
+			test = s + 1
+print(student,"got", lowest, "marks in","test", test)
