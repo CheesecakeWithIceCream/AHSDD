@@ -35,7 +35,7 @@ for i in range(3):
 		print(board[1][ i],"is the winner")
 
 for i in range(3):
-	if board[0][0] == board [1][1] == board[2][2] or board[2][0] == board [1][1] == board[1][2]:
+	if board[0][0] == board [1][1] == board[2][2] or board[2][0] == board [1][1] == board[0][2]:
 		print(board[1][1], "is the winner")
 
 ------------------------------------------------------------------------------------
