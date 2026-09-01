@@ -16,5 +16,4 @@ while found == False and (startpos <= endpos):
     else:
         endpos = middle-1
         counter+=1
-    print(list[middle])
-print(counter)
+

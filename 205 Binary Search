@@ -1,0 +1,42 @@
+def initialise():
+ searchlist = [10,15,25,26,60,90,100]
+ print("Original list:",searchlist)
+ return searchlist
+
+
+def BinarySearch(searchlist,goal):
+ found = False
+ startpos = 0
+ endpos = len(searchlist) -1
+ counter = 0
+
+ print ("Endpos at beginning = ",endpos)
+
+
+ while (startpos <= endpos) and found == False:
+     middle = (startpos+endpos)//2 #Integer Division
+     if searchlist[middle] == goal:
+         found = True
+     elif searchlist[middle]<goal:
+         startpos = middle + 1
+     else:
+         endpos = middle -1
+     counter+=1
+ print(counter, "comparisons were made")
+ if found == False:
+    return -1
+ else:
+    return middle
+
+
+
+values = initialise()
+
+
+goal = int(input("Enter goal"))
+middle = BinarySearch(values,goal)
+
+if middle != -1:
+   print("Match found at position", middle)
+else:
+   print("Goal not found")
