@@ -9,7 +9,7 @@ class ticket():
         self.name = thisname
         self.price = thisprice
         self.seat = thisseat
-        self.move = thismovie
+        self.movie = thismovie
     
     def getTicketData(self):
         return self.name, self.price, self.seat, self.move
